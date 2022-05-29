@@ -13,7 +13,7 @@ This is a browser-based application of Face Recognition technology. This FACE AT
 * Django 2.2
 
 ### Installation Steps:
-1) Clone the repository.
+1) Clone the repository using `git clone https://github.com/dikshika-s/FaceRecognition_attendance_system`.
 2) Install [Django framework](https://docs.djangoproject.com/en/4.0/topics/install/).
 3) Install the Python libraries OpenCV, face_recognition, numpy, OS and pandas.
 4) In the terminal navigate to upper folder *mysite* : 
