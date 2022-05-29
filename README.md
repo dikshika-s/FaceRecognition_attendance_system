@@ -1,6 +1,8 @@
 # FaceRecognition_attendance_system
 This is a browser-based application of Face Recognition technology. This FACE ATTENDANCE SYSTEM website is built primarily with the OPENCV and the Django framework. It recognises the user's face and records their attendance.
 
+[Demo Video]()
+
 ### Features and functionalities:
 1) Record attendance in a streamlined manner
 2) Examine the attendance sheet
