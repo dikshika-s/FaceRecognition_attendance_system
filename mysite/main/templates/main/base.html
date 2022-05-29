@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style type="text/css">
+    /* Style page content */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+        Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      position: relative;
+      min-height: 100vh;
+    }
+
+    .main-container {
+      padding: 20px;
+    }
+
+    .navbar {
+      width: 100%;
+    }
+
+    #logo {
+      width: 200;
+      height: auto;
+    }
+
+    #title {
+      font-size: 44px;
+      color: #ffffff;
+      font-family: 'Croissant One', sans-serif;
+    }
+
+    /* CARDS */
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-left: 8%;
+      margin-right: 8%;
+      margin-top: 8%;
+      width: auto;
+      align-items: center;
+    }
+
+    .card {
+      margin: 20px;
+      padding: 20px;
+      width: 300px;
+      min-height: 200px;
+      display: grid;
+      grid-template-rows: 20px 50px 1fr 50px;
+      border-radius: 10px;
+      box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+      transition: all 0.2s;
+      align-items: center;
+    }
+
+    .card:hover {
+      box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+      transform: scale(1.01);
+    }
+
+    .card__link,
+    .card__exit,
+    .card__icon {
+      position: relative;
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.9);
+      border-width: 0ch;
+      background-color: transparent;
+      border: none;
+    }
+
+    .card__link:focus {
+      outline: none;
+    }
+
+    .card__link::after {
+      position: relative;
+      top: 25px;
+      left: 0;
+      content: "";
+      width: 0%;
+      height: 3px;
+      background-color: rgba(255, 255, 255, 0.6);
+      transition: all 0.5s;
+    }
+
+    .card__link:hover::after {
+      width: 100%;
+    }
+
+    .card__exit {
+      grid-row: 1/2;
+      justify-self: end;
+    }
+
+    .card__icon {
+      grid-row: 2/3;
+      font-size: 30px;
+    }
+
+    .card__title {
+      grid-row: 3/4;
+      font-weight: 400;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .card__apply {
+      grid-row: 4/5;
+      align-self: center;
+    }
+
+    /* CARD BACKGROUNDS */
+
+    .card-1 {
+      background: radial-gradient(#1fe4f5, #3fbafe);
+    }
+
+    .card-2 {
+      background: radial-gradient(#fbc1cc, #fa99b2);
+    }
+
+    .card-3 {
+      background: radial-gradient(#76b2fe, #b69efe);
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 1600px) {
+      .cards {
+        justify-content: center;
+      }
+    }
+
+    /* REGISTER PAGE FORM */
+
+    .content-section {
+      padding: 10px 10px;
+    }
+
+    .r_container {
+      position: center;
+      width: 440px;
+      height: 300px;
+      border-radius: 20px;
+      padding: 50px;
+      box-sizing: border-box;
+      background: #f3ecec;
+      box-shadow: 4px 4px 10px #cbced1, -4px -4px 10px white;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-left: 35%;
+      margin-top: 7%;
+      align-items: center;
+    }
+
+    input {
+      background: #f3ecec;
+      padding: 10px;
+      padding-left: 40px;
+      height: 50px;
+      font-size: 14px;
+      border-radius: 50px;
+      box-shadow: inset 3px 3px 3px #d1cbcb, inset -3px -3px 3px white;
+    }
+
+    input.input {
+      padding-left: 20px;
+    }
+
+    .r_btn {
+      border: none;
+      outline: none;
+      background-color: purple;
+      padding: 1rem 1rem 1rem 1rem;
+      position: relative;
+      border-radius: 8px;
+      letter-spacing: 0.7px;
+      background-color: #4CAF50;
+      color: #fff;
+      font-size: 16px;
+      font-family: "Lato", sans-serif;
+      cursor: pointer;
+      box-shadow: rgba(0, 9, 61, 0.2) 0px 4px 8px 0px;
+      padding: 8px;
+    }
+
+    /* ATTENDANCE TABLE */
+
+    .table-header {
+      background-color: #f36c74;
+      color: #f5efef;
+      font-size: 20px;
+      text-transform: uppercase;
+      border-radius: 3px;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    tr {
+      border-radius: 3px;
+      padding: 15px 20px;
+      display: flex;
+      text-transform: capitalize;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+    }
+
+    .loader {
+      border: 16px solid #f3f3f3;
+      border-radius: 50%;
+      border-top: 16px solid #3498db;
+      width: 120px;
+      height: 120px;
+      -webkit-animation: spin 2s linear infinite;
+      /* Safari */
+      animation: spin 2s linear infinite;
+      z-index: 4;
+      display: none;
+      position: absolute;
+      margin-top: 25%;
+      margin-left: 45%;
+      top: 0;
+      left: 0;
+    }
+
+    /* FOOTER */
+    
+    .footer {
+        background-color: rgb(0, 0, 0);
+        color: white;
+        font-family: Open Sans !important;
+        bottom: 0;
+        position: fixed;
+        height: 30px;
+        width: 100%;
+      }
+
+      #util {
+        color: rgb(255, 254, 254);
+        text-align: center;
+        font-size: 12px !important;
+        padding: 7px;
+      }
+
+      p {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      .footer_home_link {
+        color: #ffffff;
+      }
+
+    @-webkit-keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+      }
+
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @import url('http://fonts.cdnfonts.com/css/croissant-one');
+  </style>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <title>{% block title %}FR{% endblock %}</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <link href="http://fonts.cdnfonts.com/css/croissant-one" rel="stylesheet">
+
+  <script>
+    function run_script() {
+      console.log('ok')
+      alert("Press key 'X' to exit webcam.");
+      document.getElementById('loader').style.display = 'block';
+      document.getElementById('cards').style.opacity = '0.4';
+
+      $.ajax({
+        type: 'GET',
+        url: 'run_graph',
+        success: function (res) {
+          console.log(res)
+          document.getElementById('loader').style.display = 'none';
+          document.getElementById('cards').style.opacity = '1';
+          if (res.already == 1) {
+            alert("Attendance already marked for the day!");
+          }
+        },
+        error: function (error) {
+          callbackErr(error, self)
+        }
+      })
+    }
+  </script>
+</head>
+
+
+<body>
+
+  {% load static %}
+
+  <!-- Static Navigation begins-->
+
+  <nav class="navbar navbar-expand-lg  navbar-light" style="background-color: #0a6e4d;">
+    <div class="container">
+      <a class="navbar-brand" href="/"><img id="logo" src="{%static 'images/logo.png' %}" height="auto" width="200"
+          class="d-inline-block align-top"></a>
+      <h1 id="title">Feuille De Presence</h1>
+    </div>
+  </nav>
+  <i class="fa fa-home" aria-hidden="true"></i>
+  </div>
+
+  <!-- Static Navigation Bar ends -->
+
+
+  <!--------------- Footer------------------- -->
+
+  <div class="container-fluid footer">
+    <div class="row">
+      <div class="col-lg-12">
+        <p id="util" style=" font-size:15px; ">&copy; Copyright
+          <script type="text/javascript">
+            document.write((new Date()).getFullYear());
+          </script> <a class="footer_home_link" href="/"> &emsp; FaceRecognizer</a>&nbsp;-&nbsp;All rights reserved.</span><br>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!--------------- Footer Ends------------------- -->
+
+  {% block content %}
+  {% endblock %}
+  </div>
+  </div>
+  </div>
+
+  </div>
+
+</body>
+
+</html>

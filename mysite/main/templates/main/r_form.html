@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Register{% endblock %}
+
+
+{% block content %}
+
+<div class="r_container">
+  <form action="/upload" enctype="multipart/form-data" method="POST">
+    <h4
+      style="font-size: 34px ;font-family: 'Croissant One', sans-serif; text-align:center; text-decoration: underline;">
+      REGISTER
+    </h4>
+    <br>
+    <h6>!Please upload image in the format name.jpeg/png/gif!</h6>
+    {% csrf_token %}
+    <input type="file" name="upload" accept="image/gif, image/jpeg, image/png" class="input" required><br><br>
+    <button type="submit" class="r_btn">Upload</button>
+  </form>
+</div>
+
+{% endblock %}

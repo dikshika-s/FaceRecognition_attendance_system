@@ -1,0 +1,29 @@
+{% extends 'main/base.html' %}
+
+{% block title %}View{% endblock %}
+
+
+{% block content %}
+<br><br>
+<div class="container">
+	<table id="table" class="display" style="width: 100%;">
+		<thead>
+			<tr class="table-header">
+				{% for header in headers %}
+				<th>{{ header }}</th>
+				{% endfor %}
+			</tr>
+		</thead>
+		<tbody>
+			{% for row in data %}
+			<tr>
+				{% for val in row %}
+				<td>{{ val }}</td>
+				{% endfor %}
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+<br><br>
+{% endblock %}
